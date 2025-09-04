@@ -8,7 +8,7 @@
                                 Dashboard
                             </a>
                             <hr>
-                            <a class="nav-link collapsed" href="">
+                            <a class="nav-link collapsed" href="http://localhost/portal-berita/modul/berita">
                                 <div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>
                                 Berita
                             </a>
