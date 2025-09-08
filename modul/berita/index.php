@@ -1,6 +1,8 @@
 <?php
 session_start();
 include ('../../config/setup.php');
+include ('../../config/database.php');
+include ('../../config/functions.php');
 include ('../layouts/header.php');
 ?>
         <div id="layoutSidenav">
@@ -21,14 +23,16 @@ include ('../layouts/header.php');
                                         <th scope="col">No</th>
                                         <th scope="col">Judul Berita</th>
                                         <th scope="col">Kategori</th>
+                                        <th scope="col">Content</th>
                                         <th scope="col">Tanggal</th>
-                                        <th scope="col">Aksi</th>
                                         <th scope="col">Pembuat</th>
+                                        <th scope="col">Gambar</th>
+                                        <th scope="col">Aksi</th>
                                         <th></th>
                                         </tr>
                                     </thead>
                                         <tbody>
-
+                                             <?php tampil_berita($koneksi) ?>
                                         </tbody>
                                     </table>
                             </div>

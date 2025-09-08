@@ -84,3 +84,35 @@ function edit_users($koneksi, $id_user){
     ';    
 }
 // fungsi users end
+
+// fungsi berita start
+function tampil_berita($koneksi){
+    $query = 'SELECT b.id_berita, b.judul, b.content, b.tanggal, b.image,
+    k.nama_kategori, u.username 
+    FROM tbl_berita b JOIN tbl_kategori k ON b.id_kategori = k.id_kategori 
+    JOIN tbl_users u ON b.id_user = u.id_user   
+    ORDER BY b.tanggal DESC';
+    $q = mysqli_query($koneksi, $query);
+    $no = 1;
+    while($d = mysqli_fetch_array($q)){
+        echo '
+        <tr>
+            <th scope="row">'.$no++.'</th>
+            <td>'.$d['judul'].'</td>
+            <td>'.$d['nama_kategori'].'</td>
+            <td>'.$d['content'].'</td>
+            <td>'.$d['tanggal'].'</td>
+            <td>'.$d['username'].'</td>
+            <td>
+                <img src="'.$d['image'].'" alt="" class="img-thumbnail" width="100px">
+            </td>
+            <td>
+                <a href="edit.php?id='.$d['id_berita'].'" class="btn btn-warning btn-sm"><abbr title="Edit data"><i class="fas fa-pen-square"></i></abbr></a>
+                <a href="destroy.php?id='.$d['id_berita'].'" class="btn btn-danger btn-sm"><abbr title="hapus data"><i class="fas fa-trash"></i></abbr></a>
+            </td>
+            <td></td>
+        </tr>';
+    }
+
+}
+// fungsi berita end
