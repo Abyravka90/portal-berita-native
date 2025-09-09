@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php 
+session_start();
+if(isset($_SESSION['id_user'])){
+    echo '<script>window.location.href="/portal-berita/modul/dashboard";</script>';
+}else { ?>
+    <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -59,3 +64,6 @@
         <script src="../../assets/template/js/scripts.js"></script>
     </body>
 </html>
+
+<?php }
+?>

@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /portal-berita/
+
+# Redirect all requests to base.php instead of index.php
+DirectoryIndex base.php
+
+# Optional: If you want to rewrite all requests to base.php
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ base.php [L]

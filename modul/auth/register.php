@@ -48,7 +48,7 @@
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small">Sudah Memiliki akun? <a href="index.php"> Silahkan login</a></div>
+                                        <div class="small">Sudah Memiliki akun? <a href="base.php"> Silahkan login</a></div>
                                     </div>
                                 </div>
                             </div>

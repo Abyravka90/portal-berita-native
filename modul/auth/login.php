@@ -1,6 +1,5 @@
 <?php
 include '../../config/database.php';
-
 $username = trim($_POST['username']);
 $password = $_POST['password'];
 
