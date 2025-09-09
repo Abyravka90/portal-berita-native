@@ -15,7 +15,12 @@ include ('../layouts/header.php');
                         <h1 class="mt-4">Berita</h1>
                         <div class="card mb-4">
                             <div class="card-body">
-                                Berita
+                            <div class="d-flex justify-content-between"> 
+                                <div class="">Berita</div>
+                                <div class="">
+                                    <a href="create.php" class="btn btn-primary"><abbr title="Tambah Data"><i class="fas fa-plus"></i></abbr></a>
+                                </div>
+                            </div>    
                                 <hr>
                                 <table class="table table-striped">
                                     <thead class="thead-dark">
