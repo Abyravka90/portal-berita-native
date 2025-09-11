@@ -12,9 +12,9 @@ move_uploaded_file($_FILES['image']['tmp_name'], $target);
 $query = "INSERT INTO tbl_berita(id_berita, id_kategori, id_user, judul, content, `image`, tanggal) VALUES (NULL, '$id_kategori', '$id_user', '$judul', '$content', '$image', '$tanggal')";
 $q = mysqli_query($koneksi, $query);
 if($q){
-        echo "<script> window.location.href = 'index.php'; </script>";
+        echo "<script> window.location.href = 'base.php'; </script>";
     }
     else{
-        echo "<script> alert('Error'); window.location.href = 'index.php'; </script>";
+        echo "<script> alert('Error'); window.location.href = 'base.php'; </script>";
     }       
 ?>

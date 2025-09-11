@@ -46,10 +46,9 @@
   <body>
     
 <header>
-  
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
+      <a href="<?= "http://localhost/portal-berita" ?>" class="navbar-brand d-flex align-items-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         <strong>Portal Berita</strong>
       </a>
@@ -67,26 +66,25 @@
         <?php 
                 include('config/database.php');
                 include('config/functions.php');
-                $data_berita = tampil_public_berita($koneksi);
+                $data_berita = detail_berita($koneksi, $_GET['id']);
                 foreach($data_berita as $data){ ?>           
-                  <div class="col-md-4">
-                  <div class="card mb-4 shadow-sm">
-                  <div class="card-body">
-                    <a href="detail.php?id=<?= $data['id_berita'] ?>">
-                      <img class="img-thumbnail" style="height: 300px; width:100%; object-fit:cover;" src="assets/img/<?= $data['image'] ?>" alt="">
-                    </a>
-                        <p class="lead text-center"><?= $data['judul'] ?></p>
-                          <hr>
-                        <p class="card-text"><?= $data['content'] ?></p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <p class="text-muted"><?= $data['tanggal'] ?></p>
+                <div class="col-md-8 offset-md-2">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="card-img-top img-fluid rounded" style="height: 400px; object-fit:cover;" src="assets/img/<?= htmlspecialchars($data['image']) ?>" alt="<?= htmlspecialchars($data['judul']) ?>">
+                        <div class="card-body">
+                            <h2 class="card-title text-center mb-3"><?= $data['judul'] ?></h2>
+                            <div class="mb-3 text-center text-muted">
+                                <small>
+                                    <i class="bi bi-calendar"></i>
+                                    <?= date('d M Y, H:i', strtotime($data['tanggal'])) ?> &nbsp; | &nbsp;
+                                    <i class="bi bi-person"></i> <?= $data['username'] ?>
+                                </small>
+                            </div>
+                            <hr>
+                            <p class="card-text" style="font-size: 1.15rem; line-height:1.7;"><?= nl2br(htmlspecialchars($data['content'])) ?></p>
                         </div>
-                          <small class="text-muted"><?= $data['nama_kategori'] ?>  &nbsp; <?= $data['username'] ?></small>
                     </div>
-                  </div>
                 </div>
-              </div>
             <?php } ?>
             <hr>
       </div>

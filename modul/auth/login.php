@@ -19,7 +19,7 @@ if ($data = mysqli_fetch_array($q)) {
         echo '
         <script>
             alert("Password Salah");
-            window.location.href = "index.php";
+            window.location.href = "base.php";
         </script>
         ';
     }

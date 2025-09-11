@@ -158,3 +158,30 @@ function edit_berita($koneksi, $id_berita){
         ';
 }
 // fungsi berita end
+
+// public berita
+function tampil_public_berita($koneksi){
+    $query = 'SELECT b.id_berita, b.judul, b.content, b.tanggal, b.image, 
+    k.nama_kategori, u.username FROM tbl_berita b 
+    JOIN tbl_kategori k ON b.id_kategori = k.id_kategori 
+    JOIN tbl_users u ON b.id_user = u.id_user
+    ORDER BY b.tanggal DESC';
+    $q = mysqli_query($koneksi, $query); 
+    $result = [];
+    while ($data = mysqli_fetch_assoc($q)) {
+        $result[] = $data;
+    }
+    return $result;
+}
+
+function detail_berita($koneksi, $id){
+    $query = "SELECT b.judul, b.content, b.tanggal, b.image, k.nama_kategori, u.username FROM tbl_berita b JOIN tbl_kategori k ON b.id_kategori = k.id_kategori JOIN tbl_users u on b.id_user = u.id_user WHERE b.id_berita = '$id' LIMIT 1";
+    //die($query);
+    $q = mysqli_query($koneksi, $query);
+    $result = [];
+    while($data = mysqli_fetch_assoc($q)){
+        $result[] = $data;
+    }
+    return $result;
+
+}

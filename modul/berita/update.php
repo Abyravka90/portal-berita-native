@@ -23,5 +23,5 @@ if (!empty($image)) {
 $query = "UPDATE tbl_berita SET judul = '$judul', content = '$content', image = '$image', id_kategori = '$id_kategori' WHERE id_berita = '$id_berita'";
 $q = mysqli_query($koneksi, $query);
 if($q){
-        echo "<script>window.location.href = 'index.php';</script>";
+        echo "<script>window.location.href = 'base.php';</script>";
     }
